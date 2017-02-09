@@ -18,9 +18,14 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.sass"
+        "styles.sass",
+        "../node_modules/materialize-css/dist/css/materialize.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/hammerjs/hammer.js",
+        "../node_modules/materialize-css/dist/js/materialize.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
