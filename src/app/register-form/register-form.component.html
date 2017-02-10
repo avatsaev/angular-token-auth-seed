@@ -1,0 +1,61 @@
+
+<form (ngSubmit)="onSignUpSubmit()" #f="ngForm" >
+
+
+  <div class="row">
+
+    <div class="input-field col s12">
+      <input id="email"
+             type="email"
+             required
+             name='email'
+             [(ngModel)]="signUpUser.email"
+             class="validate">
+      <label for="email">Email</label>
+    </div>
+
+
+
+    <div class="input-field col s12">
+      <input id="password"
+             type="password"
+             required
+             name='password'
+             [(ngModel)]="signUpUser.password"
+             class="validate">
+      <label for="password">Password</label>
+    </div>
+
+
+
+    <div class="input-field col s12">
+      <input id="password_confirmation"
+             type="password"
+             required
+             name='password_confirmation'
+             [(ngModel)]="signUpUser.passwordConfirmation"
+             class="validate">
+      <label for="password_confirmation">Password confirmation</label>
+    </div>
+
+    <span *ngIf="signUpUser.password != signUpUser.passwordConfirmation"
+          style="color:red">
+      Passwords must match
+    </span>
+
+
+    <div class="col s12">
+
+      <button type="submit"
+              [disabled]="!(f.valid) || !(signUpUser.password == signUpUser.passwordConfirmation)"
+              class="waves-effect waves-light btn blue right">
+        Sign up
+      </button>
+
+    </div>
+
+  </div>
+
+
+</form>
+
