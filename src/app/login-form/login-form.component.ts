@@ -13,7 +13,7 @@ export class LoginFormComponent implements OnInit {
     password: ''
   };
 
-  @Output() signinFormResult = new EventEmitter<any>();
+  @Output() onFormResult = new EventEmitter<any>();
   constructor(private tokenAuthSerivce:Angular2TokenService) { }
 
   ngOnInit() {}
@@ -24,13 +24,13 @@ export class LoginFormComponent implements OnInit {
 
         res => {
           if(res.status == 200){
-            this.signinFormResult.emit({signedIn: true, res});
+            this.onFormResult.emit({signedIn: true, res});
           }
         },
 
         err => {
           console.log('err:', err);
-          this.signinFormResult.emit({signedIn: false, err});
+          this.onFormResult.emit({signedIn: false, err});
         }
     )
 

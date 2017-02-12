@@ -14,7 +14,7 @@ export class RegisterFormComponent implements OnInit {
     passwordConfirmation: ''
   };
 
-  @Output() signUpFormResult = new EventEmitter<any>();
+  @Output() onFormResult = new EventEmitter<any>();
 
   constructor(private tokenAuthSerivce:Angular2TokenService) { }
 
@@ -28,14 +28,14 @@ export class RegisterFormComponent implements OnInit {
         (res) => {
 
           if (res.status == 200){
-            this.signUpFormResult.emit({signedUp: true, res})
+            this.onFormResult.emit({signedUp: true, res})
           }
 
         },
 
         (err) => {
           console.log(err.json())
-          this.signUpFormResult.emit({signedUp: false, err})
+          this.onFormResult.emit({signedUp: false, err})
         }
     )
 
