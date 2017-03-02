@@ -1,0 +1,41 @@
+<div class="row">
+
+  <div class="col l8 s12 offset-l2">
+
+    <div class="card blue-grey lighten-5 z-depth-4" style="margin-top: 5em">
+
+      <div class="card-content">
+
+        <div style="margin-bottom: 0" class="row ">
+
+          <div class="col l4 s12 center" style="margin-bottom: 1em">
+            <i class="fa fa-user-circle-o blue-grey-text darken-2" style="font-size: 8em" aria-hidden="true"></i>
+          </div>
+
+          <div *ngIf="authTokenService.currentUserData" class="col l8 s12" >
+
+            <ul class="collection grey-text text-darken-2">
+              <li class="collection-item">Email:  <b>{{authTokenService.currentUserData.email}}</b></li>
+              <li class="collection-item">Name:  <b>{{authTokenService.currentUserData.name}}</b></li>
+              <li class="collection-item">Username: <b>@{{authTokenService.currentUserData.nickname}}</b></li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card-action clearfix">
+
+        <button (click)="logOut()"
+                class="btn btn-block deep-orange darken-1 white-text waves-effect waves-light right"
+        >
+          LOGOUT
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
