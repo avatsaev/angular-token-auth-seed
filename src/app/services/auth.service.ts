@@ -9,7 +9,10 @@ export class AuthService {
   userSignedIn$:Subject<boolean> = new Subject();
 
   constructor(private authService:Angular2TokenService) {
-    this.userSignedIn$.next(this.authService.userSignedIn());
+
+    this.authService.validateToken().subscribe(
+        res => res.status == 200 ? this.userSignedIn$.next(res.json().success) : this.userSignedIn$.next(false)
+    )
   }
 
   logOutUser():Observable<Response>{
