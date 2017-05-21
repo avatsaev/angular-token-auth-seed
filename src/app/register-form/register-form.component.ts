@@ -17,7 +17,7 @@ export class RegisterFormComponent implements OnInit {
 
   @Output() onFormResult = new EventEmitter<any>();
 
-  constructor(private authSerivce:AuthService) { }
+  constructor(public authSerivce:AuthService) { }
 
   ngOnInit() {}
 
