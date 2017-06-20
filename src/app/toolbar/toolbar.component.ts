@@ -13,7 +13,7 @@ export class ToolbarComponent implements OnInit {
   @ViewChild('authDialog') authDialog: AuthDialogComponent;
 
 
-  constructor(protected authService:AuthService, private router:Router) { }
+  constructor(public authService:AuthService, private router:Router) { }
 
   ngOnInit(){}
 
