@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, EventEmitter} from '@angular/core';
-import {MaterializeAction} from "angular2-materialize";
+import {MaterializeAction} from 'angular2-materialize';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -8,47 +8,52 @@ import {MaterializeAction} from "angular2-materialize";
 })
 export class AuthDialogComponent implements OnInit {
 
-  @Input('auth-mode') authMode: 'login' | 'register' = 'login';
+  @Input() authMode: 'login' | 'register' = 'login';
   modalActions = new EventEmitter<string|MaterializeAction>();
 
   constructor() {
 
   }
 
-  onLoginFormResult(e){
+  onLoginFormResult(e) {
 
 
-    if(e.signedIn)
+    if (e.signedIn) {
       this.closeDialog();
-    else{
-      alert(e.err.json().errors[0])
+    } else {
+      alert(e.err.json().errors[0]);
     }
   }
 
-  onRegisterFormResult(e){
-    if(e.signedUp)
+  onRegisterFormResult(e) {
+    if (e.signedUp) {
       this.closeDialog();
-    else{
-      alert(e.err.json()['errors']['full_messages'][0])
+    } else {
+      alert(e.err.json()['errors']['full_messages'][0]);
     }
   }
 
 
 
-  openDialog(mode: 'login' | 'register' = 'login'){
+  openDialog(mode: 'login' | 'register' = 'login') {
     this.authMode = mode;
-    this.modalActions.emit({action:"modal", params:['open']});
+    this.modalActions.emit({action: 'modal', params: ['open']});
   }
 
-  closeDialog(){
-    this.modalActions.emit({action:"modal", params:['close']});
+  closeDialog() {
+    this.modalActions.emit({action: 'modal', params: ['close']});
   }
 
   ngOnInit() {
   }
 
-  isLoginMode(){return this.authMode == 'login'}
-  isRegisterMode(){return this.authMode == 'register'}
+  isLoginMode() {
+    return this.authMode === 'login';
+  }
+
+  isRegisterMode() {
+    return this.authMode === 'register';
+  }
 
 
 }
