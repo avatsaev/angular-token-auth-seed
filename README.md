@@ -1,5 +1,6 @@
 # AngularDeviseTokenSeed
 
+Frontend part of the "Angular & Rails user authentification" tutorial: https://medium.com/@avatsaev/angular-2-and-ruby-on-rails-user-authentication-fde230ddaed8#.bq7ibrz5e
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30.
 
 ## Development server
