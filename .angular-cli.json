@@ -1,7 +1,7 @@
 {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "version": "1.0.0-beta.30",
-    "name": "angular-devise-token-seed"
+    "name": "nub-frontend"
   },
   "apps": [
     {
@@ -15,7 +15,8 @@
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
         "styles.sass",
@@ -27,8 +28,8 @@
         "../node_modules/hammerjs/hammer.js",
         "../node_modules/materialize-css/dist/js/materialize.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
@@ -41,12 +42,13 @@
   },
   "lint": [
     {
-      "files": "src/**/*.ts",
-      "project": "src/tsconfig.json"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "files": "e2e/**/*.ts",
-      "project": "e2e/tsconfig.json"
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -56,18 +58,6 @@
   },
   "defaults": {
     "styleExt": "sass",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
-    "spec": {
-      "class": false,
-      "component": false,
-      "directive": false,
-      "module": false,
-      "pipe": false,
-      "service": false
-    }
+    "component": {}
   }
 }
